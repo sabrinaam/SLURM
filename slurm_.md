@@ -33,7 +33,6 @@ squeue -u <username> -t RUNNING
 ### List all pending jobs for a user:
 ```
 squeue -u <username> -t PENDING
-
 ```
 ### List all current jobs in the general partition for a user:
 ```
@@ -43,7 +42,6 @@ squeue -u <username> -p general
 ### List detailed information for a job (useful for troubleshooting):
 ```
 scontrol show jobid -dd <jobid>
-
 ```
 ### List status info for a currently running job:
 ```
@@ -53,7 +51,6 @@ sstat --format=AveCPU,AvePages,AveRSS,AveVMSize,JobID -j <jobid> --allsteps
 ### Once your job has completed, you can get additional information that was not available during the run. This includes run time, memory used, etc. To get statistics on completed jobs by jobID:
 ```
 sacct -j <jobid> --format=JobID,JobName,MaxRSS,Elapsed
-
 ```
  
 ### To view the same information for all jobs of a user:
@@ -64,5 +61,4 @@ sacct -u <username> --format=JobID,JobName,MaxRSS,Elapsed
 ### Add this to your .bash_profile for easy lookup of job info (lookup multiple jobids with a comma separated list)
 ```
 alias sacctjob='sacct -o Cluster%15,JobID%20,JobName%30,MaxVMSize%15,ReqTRES%30,TimeLimit%15,Elapsed%15,State%15,ExitCode -M server1,server2,server3 -j $1'
-
 ```
